@@ -7,6 +7,8 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  Area,
+  AreaChart,
 } from "recharts";
 
 const ChartSection = ({ chartData }) => {
@@ -17,21 +19,46 @@ const ChartSection = ({ chartData }) => {
   }));
 
   return (
-    <div className="bg-white shadow-md p-4 rounded-lg">
-      <h2 className="text-xl font-bold mb-4">Net Worth Over Time</h2>
+    <div className="bg-white shadow-md mb-5 p-4 rounded-lg">
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={formattedData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="year" />
-          <YAxis />
-          <Tooltip />
-          <Line
+        <AreaChart data={formattedData}>
+          <defs>
+            <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="#4f46e5" stopOpacity={0} />
+            </linearGradient>
+          </defs>
+          <XAxis
+            dataKey="year"
+            tick={{ fontSize: 12 }}
+            axisLine={{ stroke: "#ddd" }}
+            tickLine={false}
+          />
+          <YAxis
+            tick={{ fontSize: 12 }}
+            axisLine={{ stroke: "#ddd" }}
+            tickLine={false}
+            tickFormatter={(value) =>
+              new Intl.NumberFormat("en-IN").format(value)
+            }
+          />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <Tooltip
+            formatter={(value) =>
+              `₹${new Intl.NumberFormat("en-IN").format(value)}`
+            }
+            labelFormatter={(label) => `Year: ${label}`}
+          />
+          <Area
             type="monotone"
             dataKey="amount"
-            stroke="#8884d8"
-            fillOpacity={1}
+            stroke="#4f46e5"
+            fill="url(#colorAmount)"
+            strokeWidth={2}
+            dot={{ stroke: "#4f46e5", strokeWidth: 3, r: 5 }}
+            activeDot={{ r: 7 }}
           />
-        </LineChart>
+        </AreaChart>
       </ResponsiveContainer>
     </div>
   );

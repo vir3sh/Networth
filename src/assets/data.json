@@ -23,75 +23,130 @@
   "assets": [
     {
       "category": "Banks",
+      "image":"https://png.pngtree.com/png-vector/20190225/ourmid/pngtree-concept-banking-logo-png-image_712961.jpg",
       "totalAmount": "₹1,00,000",
       "details": [
         {
           "title": "HDFC Bank",
           "account": "45218759658",
           "amount": "₹45,000",
-          "logo": "🏦"
+          "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSquouX3qJzp6uZwleCOtTBppHfDKlN6vDHg&s"
         },
         {
           "title": "Bank Of Baroda",
           "account": "25685785485",
           "amount": "₹15,200",
-          "logo": "🏦"
+          "logo": "https://i.pinimg.com/originals/64/19/09/641909d6f37f5523a915b48a0a74a10c.png"
         }
       ]
     },
     {
       "category": "Investments",
       "totalAmount": "₹35,000",
+      "image":"https://i.pinimg.com/736x/2f/6a/91/2f6a91e7a682daecce89b805f74aa436.jpg",
       "details": [
         {
           "title": "Muthoot Finance",
           "account": "7854589658",
           "amount": "₹5,000",
-          "logo": "📈"
+          "logo": "https://s3-symbol-logo.tradingview.com/muthoot-finance--600.png"
         }
       ]
     },
     {
       "category": "Insurance",
       "totalAmount": "₹50,200",
+      "image":"https://i.pinimg.com/474x/fd/c1/f9/fdc1f9348b3ff0ec8704e2c395014895.jpg",
       "details": [
         {
           "title": "TATA AIG Insurance",
           "account": "56265986598",
           "amount": "₹5,200",
-          "logo": "🛡️"
+          "logo": "https://www.tataaig.com/logo.png"
         }
       ]
     },
     {
       "category": "Loans",
       "totalAmount": "₹1,50,500",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIj3Q_gIJfZlInuW7StsVCCuVjghnWcwHjQQ&s",
       "details": [
         {
           "title": "Personal Loans",
           "account": "45215487596",
           "amount": "₹1,50,500",
-          "logo": "🛡️"
+          "logo": "https://static.vecteezy.com/system/resources/thumbnails/022/424/174/small/loan-money-bag-logo-vector.jpg"
         }
       ]
     },
     {
       "category": "Credit",
+      "image":"https://png.pngtree.com/png-vector/20190507/ourmid/pngtree-vector-credit-card-icon-png-image_1025464.jpg",
       "totalAmount": "₹50,500",
       "details": [
         {
           "title": "Credit Card",
           "account": "45865232155",
           "amount": "₹50,500",
-          "logo": "🛡️"
+          "logo": "https://static.vecteezy.com/system/resources/previews/027/254/620/non_2x/credit-card-flat-icon-in-blue-square-png.png"
         }
       ]
     }
   ],
   "transactions": [
-    { "title": "Amazon Fresh", "card": "Visa Card • 0976", "amount": "₹15.5 K", "type": "expense" },
-    { "title": "Netflix", "card": "Visa Card • 0976", "amount": "₹10.5 K", "type": "expense" },
-    { "title": "Dividend", "card": "Visa Card • 0976", "amount": "₹10.5 K", "type": "income" },
-    { "title": "Income", "card": "Visa Card • 0976", "amount": "₹10.5 K", "type": "income" }
+    {
+      "title": "Amazon Fresh",
+      "card": "Visa Card • 0976",
+      "date": "2025-01-09T15:30:00Z",
+      "amount": "₹15.5 K",
+      "type": "expense"
+    },
+    {
+      "title": "Netflix",
+      "card": "MasterCard • 1234",
+      "amount": "₹10.5 K",
+      "type": "expense"
+    },
+    {
+      "title": "Dividend",
+      "card": "American Express • 2345",
+      "amount": "₹10.5 K",
+      "type": "income"
+    },
+    {
+      "title": "Income",
+      "card": "Visa Card • 6789",
+      "amount": "₹10.5 K",
+      "type": "income"
+    },
+    {
+      "title": "Uber Ride",
+      "card": "MasterCard • 7890",
+      "date": "2025-01-10T11:45:00Z",
+      "amount": "₹1.2 K",
+      "type": "expense"
+    },
+    {
+      "title": "Salary",
+      "card": "Visa Card • 5678",
+      "date": "2025-01-10T09:00:00Z",
+      "amount": "₹50.0 K",
+      "type": "income"
+    },
+    {
+      "title": "Grocery Shopping",
+      "card": "American Express • 3456",
+      "date": "2025-01-11T14:30:00Z",
+      "amount": "₹5.0 K",
+      "type": "expense"
+    },
+    {
+      "title": "Freelance Payment",
+      "card": "MasterCard • 9012",
+      "date": "2025-01-12T16:00:00Z",
+      "amount": "₹20.0 K",
+      "type": "income"
+    }
   ]
+  
 }

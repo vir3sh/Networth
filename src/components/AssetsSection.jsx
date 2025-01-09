@@ -16,8 +16,8 @@ const AssetsSection = ({ assets }) => {
             key={index}
             className="bg-gray-100 p-4 rounded-lg flex items-center justify-between"
           >
-            <span className="text-2xl">{asset.details[0]?.logo || "📁"}</span>
-            <div>
+            <img className="w-10 h-10 rounded" src={asset.image} alt="" />
+            <div className="overflow-auto">
               <p className="text-sm bg-gray-100 text-gray-600">
                 {asset.category}
               </p>

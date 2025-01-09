@@ -18,7 +18,7 @@ const TransactionsSection = ({ transactions }) => {
           >
             <div>
               <p className="font-medium">{transaction.title}</p>
-              <p className="text-gray-500">Visa Card • 0976</p>
+              <p className="text-gray-500">{transaction.card}</p>
             </div>
             <p
               className={`font-bold ${

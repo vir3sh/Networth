@@ -120,7 +120,12 @@ const Assets = ({ data, chartData }) => {
                 >
                   <div>
                     <h4 className="text-md font-semibold">
-                      {detail.logo} {detail.title}
+                      <img
+                        className="w-[70px] h-[70px]"
+                        src={detail.logo}
+                        alt=""
+                      />{" "}
+                      {detail.title}
                     </h4>
                     <p className="text-sm text-gray-500">
                       Account: {detail.account}

@@ -1,6 +1,6 @@
 const NetWorthOverview = ({ user }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 mb-4 flex flex-col justify-between sm:flex-row">
+    <div className="bg-white shadow-md mb-5  rounded-lg p-4  flex flex-col justify-between sm:flex-row">
       <div className="left">
         <h2 className="text-lg font-medium">Hello {user.name},</h2>
         <p>
