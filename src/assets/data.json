@@ -14,48 +14,46 @@
       "Credits",
       "Loans",
       "Assets"
-    ]
+    ],
+    "labels": ["Food", "Transportation", "Tax", "Shopping", "Entertainment"],
+  "data": [40, 20, 10, 15, 15],
+  "colors": ["#4CAF50", "#2196F3", "#FFC107", "#E91E63", "#9C27B0"],
+  "expenses":[3,1.5,1.5]
   },
   "assets": [
     {
       "category": "Banks",
-      "totalAmount": "₹10,500",
+      "totalAmount": "₹1,00,000",
       "details": [
         {
           "title": "HDFC Bank",
           "account": "45218759658",
-          "amount": "₹5,200",
+          "amount": "₹45,000",
           "logo": "🏦"
         },
         {
           "title": "Bank Of Baroda",
           "account": "25685785485",
-          "amount": "₹5,200",
+          "amount": "₹15,200",
           "logo": "🏦"
         }
       ]
     },
     {
       "category": "Investments",
-      "totalAmount": "₹10,500",
+      "totalAmount": "₹35,000",
       "details": [
         {
           "title": "Muthoot Finance",
           "account": "7854589658",
-          "amount": "₹5,200",
-          "logo": "📈"
-        },
-        {
-          "title": "Muthoot Finance",
-          "account": "4586598658",
-          "amount": "₹5,200",
+          "amount": "₹5,000",
           "logo": "📈"
         }
       ]
     },
     {
       "category": "Insurance",
-      "totalAmount": "₹10,500",
+      "totalAmount": "₹50,200",
       "details": [
         {
           "title": "TATA AIG Insurance",
@@ -67,12 +65,24 @@
     },
     {
       "category": "Loans",
-      "totalAmount": "₹60,500",
+      "totalAmount": "₹1,50,500",
       "details": [
         {
           "title": "Personal Loans",
           "account": "45215487596",
-          "amount": "₹5,200",
+          "amount": "₹1,50,500",
+          "logo": "🛡️"
+        }
+      ]
+    },
+    {
+      "category": "Credit",
+      "totalAmount": "₹50,500",
+      "details": [
+        {
+          "title": "Credit Card",
+          "account": "45865232155",
+          "amount": "₹50,500",
           "logo": "🛡️"
         }
       ]

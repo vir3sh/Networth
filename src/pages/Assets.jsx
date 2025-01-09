@@ -1,158 +1,140 @@
 import React from "react";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
-// JSON Data
-const jsonData = {
-  user: {
-    name: "Sahil",
-    netWorth: "₹1,23,55,059",
-    lastUpdated: "24 hours ago",
-  },
-  chartData: {
-    categories: [
-      "Banks",
-      "Investments",
-      "Insurance",
-      "Credits",
-      "Loans",
-      "Assets",
+// Register Chart.js components
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const Assets = ({ data, chartData }) => {
+  const { assets } = data;
+
+  // Prepare data for Doughnut Chart
+  const doughnutData = {
+    labels: assets.map((asset) => asset.category),
+    datasets: [
+      {
+        data: assets.map(
+          (asset) => parseFloat(asset.totalAmount.replace(/[₹,]/g, "")) // Convert "₹60,000" to 60000
+        ),
+        backgroundColor: [
+          "#4CAF50",
+          "#2196F3",
+          "#FFC107",
+          "#E91E63",
+          "#9C27B0",
+        ],
+        borderWidth: 2,
+        borderColor: "#fff",
+        hoverOffset: 6,
+      },
     ],
-    amounts: [1.5, 3, 1.5], // Expense, Income, Total
-  },
-  assets: [
-    {
-      category: "Banks",
-      totalAmount: "₹10,500",
-      details: [
-        {
-          title: "HDFC Bank",
-          account: "01234562087",
-          amount: "₹5,200",
-          logo: "🏦",
-        },
-        {
-          title: "Bank Of Baroda",
-          account: "01234562087",
-          amount: "₹5,200",
-          logo: "🏦",
-        },
-      ],
-    },
-    {
-      category: "Investments",
-      totalAmount: "₹10,500",
-      details: [
-        {
-          title: "Muthoot Finance",
-          account: "01234562087",
-          amount: "₹5,200",
-          logo: "📈",
-        },
-        {
-          title: "Muthoot Finance",
-          account: "01234562087",
-          amount: "₹5,200",
-          logo: "📈",
-        },
-      ],
-    },
-    {
-      category: "Insurance",
-      totalAmount: "₹10,500",
-      details: [
-        {
-          title: "TATA AIG Insurance",
-          account: "01234562087",
-          amount: "₹5,200",
-          logo: "🛡️",
-        },
-      ],
-    },
-  ],
-};
+  };
 
-// Colors for the pie chart
-const COLORS = ["#f87171", "#4ade80", "#fbbf24"];
-
-const Assets = () => {
-  const { user, chartData, assets } = jsonData;
-
-  // Pie chart data
-  const pieData = [
-    { name: "Expense", value: chartData.amounts[0] },
-    { name: "Income", value: chartData.amounts[1] },
-    { name: "Total", value: chartData.amounts[2] },
-  ];
+  // Chart options
+  const doughnutOptions = {
+    plugins: {
+      tooltip: {
+        enabled: true,
+        backgroundColor: "#fff",
+        borderColor: "#ddd",
+        borderWidth: 1,
+        titleColor: "#000",
+        bodyColor: "#000",
+        cornerRadius: 5,
+        padding: 10,
+      },
+      legend: {
+        display: false,
+      },
+    },
+    cutout: "70%",
+    responsive: true,
+    maintainAspectRatio: false,
+  };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
-      {/* Header */}
-      <header className="bg-white shadow-md p-4 rounded-lg mb-4">
-        <h1 className="text-lg font-bold">Asset Allocation</h1>
-        <p className="text-sm text-gray-600">Last 30 days</p>
-      </header>
-
-      {/* Chart Section */}
-      <div className="bg-white shadow-md p-4 rounded-lg mb-4">
+    <div className="p-4">
+      {/* Doughnut Chart Section */}
+      <div className="bg-white shadow-md rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between mb-4">
           <p className="text-sm text-gray-600">
-            Expense: <span className="text-red-500">₹1.5 Lac</span>
+            Expense:{" "}
+            <span className="text-red-500">{chartData.expenses[0]} lac</span>
           </p>
           <p className="text-sm text-gray-600">
-            Income: <span className="text-green-500">₹3 Lac</span>
+            Income:{" "}
+            <span className="text-green-500">{chartData.expenses[1]} lac</span>
           </p>
           <p className="text-sm text-gray-600">
-            Total: <span className="text-yellow-500">₹1.5 Lac</span>
+            Total:{" "}
+            <span className="text-yellow-500">{chartData.expenses[2]} lac</span>
           </p>
         </div>
-        <ResponsiveContainer width="100%" height={200}>
-          <PieChart>
-            <Pie
-              data={pieData}
-              cx="50%"
-              cy="50%"
-              innerRadius={50}
-              outerRadius={80}
-              fill="#8884d8"
-              paddingAngle={5}
-              dataKey="value"
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-        <div className="flex justify-around text-sm mt-4">
-          <span className="text-red-500">• Banks</span>
-          <span className="text-blue-500">• Investments</span>
-          <span className="text-green-500">• Insurance</span>
+        <div style={{ height: "300px", position: "relative" }}>
+          <Doughnut data={doughnutData} options={doughnutOptions} />
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              textAlign: "center",
+            }}
+          >
+            <p className="text-xl font-bold">Assets</p>
+          </div>
         </div>
-      </div>
-
-      {/* Assets Section */}
-      {assets.map((asset, index) => (
-        <div key={index} className="bg-white shadow-md p-4 rounded-lg mb-4">
-          <h2 className="text-lg font-bold mb-2">{asset.category}</h2>
-          <p className="text-sm text-gray-600 mb-4">{asset.totalAmount}</p>
-          {asset.details.map((detail, idx) => (
-            <div
-              key={idx}
-              className="flex items-center justify-between mb-2 border-b pb-2"
-            >
-              <div className="flex items-center space-x-4">
-                <span className="text-2xl">{detail.logo}</span>
-                <div>
-                  <p className="text-sm font-bold">{detail.title}</p>
-                  <p className="text-xs text-gray-600">{detail.account}</p>
-                </div>
-              </div>
-              <p className="text-sm font-bold">{detail.amount}</p>
+        <div className="flex justify-center mt-4 space-x-4 overflow-auto">
+          {assets.map((asset, index) => (
+            <div key={index} className="flex items-center text-sm">
+              <span
+                style={{
+                  backgroundColor:
+                    doughnutData.datasets[0].backgroundColor[index],
+                  display: "inline-block",
+                  width: "10px",
+                  height: "10px",
+                  borderRadius: "50%",
+                  marginRight: "8px",
+                }}
+              ></span>
+              {asset.category}
             </div>
           ))}
         </div>
-      ))}
+      </div>
+
+      {/* Assets Overview Section */}
+      <div className="bg-white shadow-md rounded-lg p-4">
+        <h2 className="text-lg font-bold mb-4">Assets Details</h2>
+        {assets.map((asset, index) => (
+          <div key={index} className="mb-6">
+            <h3 className="text-lg font-semibold text-gray-700 mb-2">
+              {asset.category} - Total: {asset.totalAmount}
+            </h3>
+            <div className="border rounded-lg p-4 bg-gray-50">
+              {asset.details.map((detail, idx) => (
+                <div
+                  key={idx}
+                  className="flex justify-between items-center border-b py-2"
+                >
+                  <div>
+                    <h4 className="text-md font-semibold">
+                      {detail.logo} {detail.title}
+                    </h4>
+                    <p className="text-sm text-gray-500">
+                      Account: {detail.account}
+                    </p>
+                  </div>
+                  <p className="text-lg font-bold text-blue-500">
+                    {detail.amount}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
