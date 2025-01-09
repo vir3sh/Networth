@@ -9,7 +9,7 @@ const Header = () => {
           to={"/"}
           className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold"
         >
-          S
+          V
         </Link>
         <Link to={"/"} className="ml-3 text-xl font-bold">
           Networth
