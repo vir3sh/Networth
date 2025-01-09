@@ -1,0 +1,87 @@
+{
+  "user": {
+    "name": "Sahil",
+    "netWorth": "₹1,23,55,059",
+    "lastUpdated": "24 hours ago"
+  },
+  "chartData": {
+    "timePeriod": ["2019", "2020", "2021", "2022", "2023", "2024"],
+    "amounts": [50000, 100000, 150000, 180000, 200000, 230000],
+    "categories": [
+      "Banks",
+      "Investments",
+      "Insurance",
+      "Credits",
+      "Loans",
+      "Assets"
+    ]
+  },
+  "assets": [
+    {
+      "category": "Banks",
+      "totalAmount": "₹10,500",
+      "details": [
+        {
+          "title": "HDFC Bank",
+          "account": "45218759658",
+          "amount": "₹5,200",
+          "logo": "🏦"
+        },
+        {
+          "title": "Bank Of Baroda",
+          "account": "25685785485",
+          "amount": "₹5,200",
+          "logo": "🏦"
+        }
+      ]
+    },
+    {
+      "category": "Investments",
+      "totalAmount": "₹10,500",
+      "details": [
+        {
+          "title": "Muthoot Finance",
+          "account": "7854589658",
+          "amount": "₹5,200",
+          "logo": "📈"
+        },
+        {
+          "title": "Muthoot Finance",
+          "account": "4586598658",
+          "amount": "₹5,200",
+          "logo": "📈"
+        }
+      ]
+    },
+    {
+      "category": "Insurance",
+      "totalAmount": "₹10,500",
+      "details": [
+        {
+          "title": "TATA AIG Insurance",
+          "account": "56265986598",
+          "amount": "₹5,200",
+          "logo": "🛡️"
+        }
+      ]
+    },
+    {
+      "category": "Loans",
+      "totalAmount": "₹60,500",
+      "details": [
+        {
+          "title": "Personal Loans",
+          "account": "45215487596",
+          "amount": "₹5,200",
+          "logo": "🛡️"
+        }
+      ]
+    }
+  ],
+  "transactions": [
+    { "title": "Amazon Fresh", "card": "Visa Card • 0976", "amount": "₹15.5 K", "type": "expense" },
+    { "title": "Netflix", "card": "Visa Card • 0976", "amount": "₹10.5 K", "type": "expense" },
+    { "title": "Dividend", "card": "Visa Card • 0976", "amount": "₹10.5 K", "type": "income" },
+    { "title": "Income", "card": "Visa Card • 0976", "amount": "₹10.5 K", "type": "income" }
+  ]
+}
